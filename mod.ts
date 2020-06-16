@@ -1,4 +1,4 @@
-import { Application } from './deps.ts'
+import { Application, send, log } from './deps.ts'
 
 const app = new Application()
 const PORT = 8000
@@ -18,11 +18,26 @@ app.use(async (ctx, next) => {
   ctx.response.headers.set('X-Response-Time', `${delta}ms`)
 })
 
+// serve static files
+app.use(async (ctx) => {
+  const filePath = ctx.request.url.pathname
+  const fileWhitelist = [
+    '/index.html',
+    '/javascripts/script.js',
+    '/stylesheets/style.css',
+    '/images/favicon.png',
+  ]
+  await send(ctx, filePath, {
+    root: `${Deno.cwd()}/public`,
+  })
+})
+
 app.use((ctx) => {
   ctx.response.body = `NASA MISSION CONTROL API`
 })
 
 if (import.meta.main) {
+  log.info(`Starting server on post ${PORT}...`)
   await app.listen({
     port: PORT,
   })
