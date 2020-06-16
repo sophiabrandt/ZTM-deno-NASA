@@ -8,7 +8,7 @@ router.get('/', (ctx) => {
   ctx.response.body = `NASA MISSION CONTROL API`
 })
 
-router.get('/planets', ctx => {
+router.get('/planets', (ctx) => {
   ctx.response.body = planets.getAll()
 })
 
