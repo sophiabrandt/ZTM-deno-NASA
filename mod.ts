@@ -1,5 +1,7 @@
 import { Application, send, log } from './deps.ts'
 
+import api from './api.ts'
+
 const app = new Application()
 const PORT = 8000
 
@@ -17,6 +19,9 @@ app.use(async (ctx, next) => {
   const delta = Date.now() - start
   ctx.response.headers.set('X-Response-Time', `${delta}ms`)
 })
+
+// routes
+app.use(api.routes())
 
 // serve static files
 app.use(async (ctx) => {
