@@ -5,6 +5,19 @@ import api from './api.ts'
 const app = new Application()
 const PORT = 8000
 
+// create logger
+await log.setup({
+  handlers: {
+    console: new log.handlers.ConsoleHandler('INFO'),
+  },
+  loggers: {
+    default: {
+      level: 'INFO',
+      handlers: ['console'],
+    },
+  },
+})
+
 // simple request logging middleware
 app.use(async (ctx, next) => {
   await next()
