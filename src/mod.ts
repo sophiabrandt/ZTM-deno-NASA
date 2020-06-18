@@ -18,6 +18,21 @@ await log.setup({
   },
 })
 
+// error handling
+app.use(async (ctx, next) => {
+  try {
+    await next()
+  } catch (err) {
+    ctx.response.body = 'Internal Server Error'
+    throw err
+  }
+})
+
+// allow oak to listen to thrown errors
+app.addEventListener('error', (event) => {
+  log.error(event.error)
+})
+
 // simple request logging middleware
 app.use(async (ctx, next) => {
   await next()
