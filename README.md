@@ -15,7 +15,7 @@ deno cache --reload --lock=lock.json deps.ts
 ## Usage
 
 ```bash
-deno run --allow-net --allow-read src/mod.ts
+deno run --allow-net --allow-read --lock=lock.json src/mod.ts
 ```
 
 The API is available under `http://localhost:8000`.
