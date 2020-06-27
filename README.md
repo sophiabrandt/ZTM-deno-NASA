@@ -18,6 +18,14 @@ deno cache --reload --lock=lock.json deps.ts
 deno run --allow-net --allow-read src/mod.ts
 ```
 
+The API is available under `http://localhost:8000`.
+
+**Example Usage**:  
+Query for launches:
+```bash
+curl http://localhost:8000/launches
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
