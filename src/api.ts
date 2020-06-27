@@ -20,8 +20,19 @@ router.get('/launches', (ctx) => {
 router.get('/launches/:id', (ctx) => {
   if (ctx.params?.id) {
     const launchesList = launches.getOne(Number(ctx.params.id))
-    launchesList ? ctx.response.body = launchesList : ctx.throw(400, 'Launch with that ID does not exist')
+    launchesList
+      ? (ctx.response.body = launchesList)
+      : ctx.throw(400, 'Launch with that ID does not exist')
   }
+})
+
+router.post('/launches', async (ctx) => {
+  const body = await ctx.request.body()
+
+  launches.addOne(body.value)
+
+  ctx.response.body = { success: true }
+  ctx.response.status = 201
 })
 
 export default router
