@@ -4,7 +4,19 @@
 
 ## Installation
 
+Install [Deno](https://deno.land/#installation).
+
+Load dependencies:
+
+```bash
+deno cache --reload --lock=lock.json deps.ts
+```
+
 ## Usage
+
+```bash
+deno run --allow-net --allow-read src/mod.ts
+```
 
 ## Contributing
 
