@@ -26,6 +26,8 @@ Query for launches:
 curl http://localhost:8000/launches
 ```
 
+The front-end application is available under `http://localhost:8000/index.html`.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
