@@ -22,11 +22,18 @@ The API is available under `http://localhost:8000`.
 
 **Example Usage**:  
 Query for launches:
+
 ```bash
 curl http://localhost:8000/launches
 ```
 
 The front-end application is available under `http://localhost:8000/index.html`.
+
+## Tests
+
+```bash
+deno test --allow-read src/models/planets.spec.ts
+```
 
 ## Contributing
 
