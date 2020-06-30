@@ -14,7 +14,7 @@ task('denon', [], async function () {
 
 desc('Cache and lock dependencies')
 task('cache', [], async function () {
-  await sh('deno cache --lock=lock.json --lock-write src/mod.ts')
+  await sh('deno cache --lock=lock.json --lock-write src/deps.ts')
 })
 
 desc('Install denon for development')
