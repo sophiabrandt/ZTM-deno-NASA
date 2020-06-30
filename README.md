@@ -9,13 +9,19 @@ Install [Deno](https://deno.land/#installation).
 Load dependencies:
 
 ```bash
-deno cache --reload --lock=lock.json deps.ts
+deno cache --reload --lock=lock.json src/deps.ts
+// or
+deno run -A Drakefile.ts cache
 ```
 
 ## Usage
 
+### Development
+
 ```bash
 deno run --allow-net --allow-read --lock=lock.json src/mod.ts
+// or
+deno run -A Drakefile.ts denon
 ```
 
 The API is available under `http://localhost:8000`.
