@@ -1,0 +1,14 @@
+version: '2.4'
+
+services:
+
+  deno_app:
+    build:
+      context: .
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/opt/deno_app:delegated
+
+volumes:
+  notused:
