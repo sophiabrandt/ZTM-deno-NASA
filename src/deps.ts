@@ -1,5 +1,6 @@
 // standard library
 export * as log from 'https://deno.land/std@0.57.0/log/mod.ts'
+export * as flags from "https://deno.land/std@0.57.0/flags/mod.ts"
 
 export { join } from 'https://deno.land/std@0.57.0/path/mod.ts'
 export { parse } from 'https://deno.land/std@0.57.0/encoding/csv.ts'

@@ -1,9 +1,12 @@
-import { Application, send, log } from './deps.ts'
+import { Application, send, log, flags } from './deps.ts'
 
 import api from './api.ts'
 
 const app = new Application()
+
 const PORT = 8000
+const argPort = flags.parse(Deno.args).port
+const port = argPort ? Number(argPort) : PORT
 
 // create logger
 await log.setup({
@@ -60,7 +63,7 @@ app.use(async (ctx) => {
     '/javascripts/script.js',
     '/stylesheets/style.css',
     '/images/favicon.png',
-    '/videos/space.mp4'
+    '/videos/space.mp4',
   ]
   if (fileWhitelist.includes(filePath)) {
     await send(ctx, filePath, {
@@ -74,8 +77,8 @@ app.use((ctx) => {
 })
 
 if (import.meta.main) {
-  log.info(`Starting server on post ${PORT}...`)
+  log.info(`Starting server on post ${port}...`)
   await app.listen({
-    port: PORT,
+    port,
   })
 }

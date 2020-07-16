@@ -5,11 +5,20 @@ FROM hayd/deno:alpine-1.1.1
 RUN mkdir /opt/deno_app && chown deno:deno /opt/deno_app
 WORKDIR /opt/deno_app
 
-# copy source code
-COPY . .
-
 # change to non-priviliged user
 USER deno
 
+# copy dependencies
+COPY src/deps.ts src/
+RUN deno cache src/deps.ts
+
+# copy source code
+COPY . .
+# Compile the main app so that it doesn't need to be compiled each startup/entry.
+RUN deno cache src/mod.ts
+
+# set shell
+ENV SHELL /bin/sh
+
 # Run app
-CMD ["run", "--allow-net", "--allow-read", "src/mod.ts"]
+CMD ["run", "--allow-all", "Drakefile.ts", "start"]

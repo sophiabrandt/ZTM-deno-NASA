@@ -2,13 +2,13 @@ import { desc, task, sh, run } from 'https://deno.land/x/drake@v1.2.3/mod.ts'
 
 desc('Run API')
 task('start', [], async function () {
-  await sh('PORT=8000 deno run --allow-env --allow-net --allow-read src/mod.ts')
+  await sh('deno run --allow-env --allow-net --allow-read src/mod.ts --port=${PORT}')
 })
 
 desc('Run API via denon for development')
 task('denon', [], async function () {
   await sh(
-    'PORT=8000 denon run --allow-env --allow-net --allow-read src/mod.ts'
+    'denon run --allow-env --allow-net --allow-read src/mod.ts --port=${PORT}'
   )
 })
 
