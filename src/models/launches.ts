@@ -1,6 +1,6 @@
 import { log, chain } from "../deps.ts";
 
-interface Launch {
+export interface Launch {
   flightNumber: number;
   mission: string;
   rocket: string;

@@ -1,4 +1,5 @@
 import { Router } from './deps.ts'
+import { Launch } from './models/launches.ts'
 
 import * as planets from './models/planets.ts'
 import * as launches from './models/launches.ts'
@@ -27,9 +28,11 @@ router.get('/launches/:id', (ctx) => {
 })
 
 router.post('/launches', async (ctx) => {
-  const body = await ctx.request.body()
+  const launch: Launch = await ctx.request.body().value
 
-  launches.addOne(body.value)
+  if (!!launch) {
+    launches.addOne(launch)
+  }
 
   ctx.response.body = { success: true }
   ctx.response.status = 201
