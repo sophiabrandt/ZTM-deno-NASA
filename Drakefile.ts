@@ -12,6 +12,12 @@ task('denon', [], async function () {
   )
 })
 
+desc('Run tests')
+task('test', [], async function () {
+  await sh('deno test --allow-read src/models/planets.spec.ts')
+})
+
+
 desc('Cache and lock dependencies')
 task('cache', [], async function () {
   await sh('deno cache --lock=lock.json --lock-write src/deps.ts')
