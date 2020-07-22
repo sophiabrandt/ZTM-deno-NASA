@@ -9,6 +9,4 @@ services:
       - '8000:8000'
     volumes:
       - .:/opt/deno_app:delegated
-
-volumes:
-  notused:
+      - ./src/deps.ts:/opt/deno_app/src/deps.ts
