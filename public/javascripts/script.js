@@ -48,6 +48,10 @@ function submitLaunch() {
   const rocket = document.getElementById('rocket-name').value
   const flightNumber = launches[launches.length - 1].flightNumber + 1
 
+  if (mission.trim().length === 0) {
+    document.getElementById('mission-missing').hidden = false
+  } else {
+
   return fetch('/launches', {
     method: 'post',
     headers: {
@@ -61,10 +65,17 @@ function submitLaunch() {
       target,
     }),
   })
-    .then(() => {
-      document.getElementById('launch-success').hidden = false
+    .then((res) => {
+      if (res.status === 201) {
+        document.getElementById('mission-missing').hidden = true
+        document.getElementById('launch-success').hidden = false
+      } else {
+        document.getElementById('mission-missing').hidden = true
+        document.getElementById('launch-error').hidden = false
+      }
     })
     .then(loadLaunches)
+  }
 }
 
 function listUpcoming() {
