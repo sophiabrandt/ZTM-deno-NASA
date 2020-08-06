@@ -7,7 +7,7 @@ import * as launches from './models/launches.ts'
 const router = new Router()
 
 router.get('/', (ctx) => {
-  ctx.response.body = `NASA MISSION CONTROL API`
+  ctx.response.redirect('/index.html')
 })
 
 router.get('/planets', (ctx) => {
