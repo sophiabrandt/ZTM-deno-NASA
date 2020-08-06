@@ -5,6 +5,7 @@ services:
   deno_app:
     build:
       context: .
+    command: denon
     ports:
       - '8000:8000'
     volumes:
