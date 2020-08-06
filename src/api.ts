@@ -32,10 +32,11 @@ router.post('/launches', async (ctx) => {
 
   if (!!launch) {
     launches.addOne(launch)
+    ctx.response.body = { success: true }
+    ctx.response.status = 201
+  } else {
+    ctx.throw(400, 'No launch available.')
   }
-
-  ctx.response.body = { success: true }
-  ctx.response.status = 201
 })
 
 router.delete('/launches/:id', (ctx) => {
