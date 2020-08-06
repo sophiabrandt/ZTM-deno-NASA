@@ -16,5 +16,5 @@ RUN deno cache src/deps.ts
 ENV SHELL /bin/sh
 
 # Run app
-ENTRYPOINT ["deno", "run", "--allow-all", "Drakefile.ts", "start"]
+ENTRYPOINT ["deno", "run", "--allow-all", "Drakefile.ts"]
 CMD ["start"]
