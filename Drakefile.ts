@@ -25,7 +25,7 @@ task('cache', [], async function () {
 
 desc('Install denon for development')
 task('denon-install', [], async function () {
-  await sh('deno install -Af --unstable https://deno.land/x/denon/denon.ts')
+  await sh('deno install -Af --unstable https://deno.land/x/denon@2.3.1/denon.ts')
 })
 
 run()
