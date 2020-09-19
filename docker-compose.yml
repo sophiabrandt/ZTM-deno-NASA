@@ -5,9 +5,11 @@ services:
   deno_app:
     build:
       context: .
+    environment:
+      - PORT=8501
     command: denon
     ports:
-      - '8000:8000'
+      - '8501:8501'
     volumes:
       - .:/opt/deno_app:delegated
       - ./src/deps.ts:/opt/deno_app/src/deps.ts

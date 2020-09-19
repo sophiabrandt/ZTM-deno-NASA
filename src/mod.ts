@@ -4,7 +4,7 @@ import api from './api.ts'
 
 const app = new Application()
 
-const PORT = 8000
+const PORT = 8501
 const argPort = flags.parse(Deno.args).port
 const port = argPort ? Number(argPort) : PORT
 

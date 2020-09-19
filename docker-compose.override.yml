@@ -1,0 +1,19 @@
+
+services:
+
+  deno_app:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ztmdeno.entrypoints=websecure
+      - traefik.http.routers.ztmdeno.rule=Host(`ztmdeno.app.localhost`)
+      - traefik.http.services.ztmdeno.loadbalancer.server.port=8501
+      - traefik.http.routers.ztmdeno.tls=true
+      - traefik.http.routers.ztmdeno.tls.options=default
+      - traefik.http.routers.ztmdeno.tls.domains[0].main=ztmdeno.app.localhost
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: true
+
