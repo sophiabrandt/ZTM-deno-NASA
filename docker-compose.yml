@@ -7,7 +7,6 @@ services:
       context: .
     environment:
       - PORT=8501
-    command: denon
     ports:
       - '8501:8501'
     volumes:

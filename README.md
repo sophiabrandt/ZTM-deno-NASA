@@ -21,19 +21,19 @@ deno run -A Drakefile.ts cache
 ```bash
 deno run --allow-net --allow-read --lock=lock.json src/mod.ts
 // or
-deno run -A Drakefile.ts denon
+deno run -A Drakefile.ts start
 ```
 
-The API is available under `http://localhost:8000`.
+The API is available under `http://localhost:8501`.
 
 **Example Usage**:  
 Query for launches:
 
 ```bash
-curl http://localhost:8000/launches
+curl http://localhost:8501/launches
 ```
 
-The front-end application is available under `http://localhost:8000/index.html`.
+The front-end application is available under `http://localhost:8501/index.html`.
 
 ## Tests
 
