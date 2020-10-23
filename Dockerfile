@@ -1,5 +1,5 @@
 # base image
-FROM hayd/deno:alpine-1.4.0
+FROM hayd/alpine-deno:1.4.6
 
 # working directory
 RUN mkdir -p /opt/deno_app && chown deno:deno /opt/deno_app
